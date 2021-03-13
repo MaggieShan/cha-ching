@@ -2,6 +2,23 @@
   text-align: center;
 }
 
+.container  {
+  background-color: #22264C;
+  padding: 50px;
+  height: 200px;
+}
+
+.profile {
+
+  width: 100%;
+  height: 300px;
+}
+
+.title {
+  font-size: large;
+  color: white;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
