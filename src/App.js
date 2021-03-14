@@ -7,7 +7,8 @@ class App extends React.Component {
     super();
 
     this.state = {
-      isCart: false
+      isCart: false,
+      pageText: ""      
     };
     this.isCart = this.isCart.bind(this);
   }
@@ -15,18 +16,38 @@ class App extends React.Component {
   isCart() {
     chrome.tabs.query({active: true, currentWindow: true}, tabs => {
       var activeTab = tabs[0].url;
-      console.log(activeTab);
-      console.log(activeTab.includes("cart"));
       this.setState({ isCart: activeTab.includes("cart") });
+      // this.setState({ isProduct: activeTab.includes("product") });
     });
-    console.log(this.state.isCart);
   }
+
+  // getText() {
+  //   chrome.tabs.onActivated.listener(activeInfo => {  
+  //     chrome.tabs.query({active: true, currentWindow: true}, tabs => {
+  //       chrome.tabs.sendMessage({message: tabs, options: ''}, response => {
+  //         this.setState({pageText: response});
+  //       });
+  //     });
+  //   });
+  // }
 
   render() {
     this.isCart(); 
     if (this.state.isCart) { 
-      return <h1>WORKING</h1>;
-    }
+      // console.log(this.state.url);
+      return (
+        <div className='cart'>
+          <h1>Hi Kim!</h1>
+          <h2>Your order will donate</h2>
+          <h3>$3.29</h3>
+          <card>Meet...</card>
+        </div>
+      );
+    } 
+    // else if (this.state.isProduct) {
+    //   console.log("here")
+    // }
+
     return (
       <div className="App">
         <div className="container">
