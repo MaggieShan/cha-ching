@@ -11,5 +11,5 @@
   "permissions": [
     "tabs"
   ],
-  "content_security_policy": "script-src 'self' 'sha256-wPSjqRBcoXB+LKTtK9+xSqme9BXdy665y37KErLZFb0='; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'sha256-FLb4pJWeFMA4rfDh/Soxb+V3lNUJBq4wfN4Q+Yf75HY='; object-src 'self'"
 }
