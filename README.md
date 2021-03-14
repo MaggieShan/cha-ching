@@ -6,6 +6,7 @@ Currently, this extension pulls from the Kiva API to connect users with microcre
 
 NOTE: To run the app, you may need to put the following in your .env file:
 INLINE_RUNTIME_CHUNK=false
+
 There has also been some problems with the content_security_policy in manifest.json - the problem can be solved by changing the hash.
 
 # Getting Started with Create React App
