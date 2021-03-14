@@ -1,30 +1,42 @@
 /*global chrome*/
+import React from 'react';
 import './App.css';
 
-async function isCart(){
-  let result = '';
-  chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
-    result = tabs[0];
-    // use `url` here inside the callback because it's asynchronous!
-  });
+class App extends React.Component {
+  constructor() {
+    super();
 
-  console.log(result?.url);
+    this.state = {
+      isCart: false
+    };
+    this.isCart = this.isCart.bind(this);
+  }
 
-  return result?.url.includes("cart");
-}
+  isCart() {
+    chrome.tabs.query({active: true, currentWindow: true}, tabs => {
+      var activeTab = tabs[0].url;
+      console.log(activeTab);
+      console.log(activeTab.includes("cart"));
+      this.setState({ isCart: activeTab.includes("cart") });
+    });
+    console.log(this.state.isCart);
+  }
 
-function App() {
-  console.log(0, isCart());
-  return (
-    <div className="App">
-      <div className="container">
-        <header className="title">
-        Hi, Kim!
-        </header>
+  render() {
+    this.isCart(); 
+    if (this.state.isCart) { 
+      return <h1>WORKING</h1>;
+    }
+    return (
+      <div className="App">
+        <div className="container">
+          <header className="title">
+          Hi, Kim!
+          </header>
+        </div>
       </div>
-      
-    </div>
-  );
-}
+    );
+  }
+};
 
 export default App;
