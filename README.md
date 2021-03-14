@@ -1,4 +1,7 @@
 # ChaChange
+
+Made with <3 by Maggie Shan, Connie Yao, Kim Lu, and David Ye. Special mention to our mentor Josh Beattie!
+
 Let your purchases power microloans for women.
 This chrome extension enables and empowers underrepresented populations by increasing their economic opportunities. By partnering with affiliate companies, we will take a portion of the sale, typically around 6%, and put it towards a specific microcredit loan.
 
