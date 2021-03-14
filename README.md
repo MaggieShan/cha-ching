@@ -2,6 +2,8 @@
 
 Made with <3 by Maggie Shan, Connie Yao, Kim Lu, and David Ye. Special mention to our mentor Josh Beattie!
 
+[Final prototype](https://www.figma.com/proto/e3t0QDnjRWDuqNKVaipmIa/HTG-Cha-Ching?node-id=97%3A453&scaling=min-zoom)
+
 Let your purchases power microloans for women.
 This chrome extension enables and empowers underrepresented populations by increasing their economic opportunities. By partnering with affiliate companies, we will take a portion of the sale, typically around 6%, and put it towards a specific microcredit loan.
 
