@@ -1,3 +1,13 @@
+# ChaChange
+Let your purchases power microloans for women.
+This chrome extension enables and empowers underrepresented populations by increasing their economic opportunities. By partnering with affiliate companies, we will take a portion of the sale, typically around 6%, and put it towards a specific microcredit loan.
+
+Currently, this extension pulls from the Kiva API to connect users with microcreditors to show loans, and upon checkout, will show how much money a certain purchase will donate.
+
+NOTE: To run the app, you may need to put the following in your .env file:
+INLINE_RUNTIME_CHUNK=false
+There has also been some problems with the content_security_policy in manifest.json - the problem can be solved by changing the hash.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
