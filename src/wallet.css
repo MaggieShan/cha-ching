@@ -1,0 +1,62 @@
+img {
+    width: 50px;
+    height: 50px;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.creditcard {
+    position: absolute;
+    z-index: 1;
+    margin-left: -15px;
+    margin-top: 25px;
+    padding: 15px;
+    padding-left: 15px;
+    border-radius: 15px 15px 0 0;
+    width: 300px;
+    height: 150px;
+    background-color: #699576;
+}
+.creditcard2 {
+    position: absolute;
+    z-index: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 15px;
+    padding-left: 15px;
+    border-radius: 10px 10px 0 0;
+    width: 250px;
+    height: 10px;
+    background-color: #FFCF63;
+}
+
+.white {
+    color: white;
+}
+
+.curr { 
+    margin-top: -2px;
+    font-size: x-large;
+    text-align: left;
+}
+
+.text {
+    margin-left: 15px;
+}
+
+.start {
+    font-size: small;
+    margin-top: 5px;
+}
+
+.caption {
+    margin-top: 0;
+}

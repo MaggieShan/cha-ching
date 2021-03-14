@@ -1,5 +1,9 @@
 /*global chrome*/
+import logo from './logo.svg';
 import React from 'react';
+import Wallet from './wallet'
+import Loanee from './loanee'
+import Cart from './cart'
 import './App.css';
 
 class App extends React.Component {
@@ -7,9 +11,12 @@ class App extends React.Component {
     super();
 
     this.state = {
-      isCart: false,
-      pageText: ""      
-    };
+      isCart: false,    
+      userId: "",
+      signedIn: false
+    }
+    this.onInputchange = this.onInputchange.bind(this);
+    this.onLogIn = this.onLogIn.bind(this);
     this.isCart = this.isCart.bind(this);
   }
 
@@ -17,47 +24,68 @@ class App extends React.Component {
     chrome.tabs.query({active: true, currentWindow: true}, tabs => {
       var activeTab = tabs[0].url;
       this.setState({ isCart: activeTab.includes("cart") });
-      // this.setState({ isProduct: activeTab.includes("product") });
     });
   }
 
-  // getText() {
-  //   chrome.tabs.onActivated.listener(activeInfo => {  
-  //     chrome.tabs.query({active: true, currentWindow: true}, tabs => {
-  //       chrome.tabs.sendMessage({message: tabs, options: ''}, response => {
-  //         this.setState({pageText: response});
-  //       });
-  //     });
-  //   });
-  // }
+  onInputchange = (event) => {
+    console.log(event);
+    this.setState({
+      userId: event.target.value
+    });
+  }
 
+  onLogIn() {
+    if(this.state.userId) {
+      this.setState({ signedIn: true });
+    }
+    console.log(this.state.signedIn);
+  }
+    
   render() {
     this.isCart(); 
-    if (this.state.isCart) { 
-      // console.log(this.state.url);
+    if (!this.state.signedIn) {
       return (
-        <div className='cart'>
-          <h1>Hi Kim!</h1>
-          <h2>Your order will donate</h2>
-          <h3>$3.29</h3>
-          <card>Meet...</card>
+        <form>
+          <div className="App">
+            <div className="login">
+              <h1 className="title"> Invest in her </h1>
+              <input 
+                type="text" 
+                name="name"
+                value={this.state.userId}
+                onChange={this.onInputchange}
+                />
+              <button className="loginButton" onClick={this.onLogIn}> <h1>Log in</h1></button>
+            </div>
+          </div>
+        </form>
+    );
+    }
+    if (this.state.isCart) { 
+      return (
+        <div className="App">
+          <div className="wallet">
+            <h1 className="welcome">
+              Hi, {this.state.userId}!
+            </h1>
+            <Cart/>
+          </div>
+          <Loanee/>
         </div>
       );
     } 
-    // else if (this.state.isProduct) {
-    //   console.log("here")
-    // }
-
     return (
       <div className="App">
-        <div className="container">
-          <header className="title">
-          Hi, Kim!
-          </header>
+        <div className="wallet">
+          <h1 className="welcome">
+            Hi, {this.state.userId}!
+          </h1>
+          <Wallet/>
         </div>
+        <Loanee/>
       </div>
     );
-  }
+  };
 };
 
 export default App;
